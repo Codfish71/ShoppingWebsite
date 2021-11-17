@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">      
+    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+      
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Shopping Cart</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <button type="button" class="btn btn-danger px-3 me-2"  (click) = "logout()">
+          Logout
+        </button>
+      </div>
+    </div>
+    
+  </div>
+</nav>
+
+<div class="container">
+  <button class="btn btn-warning" (click) = "getProducts()">View Products</button>
+  <table class="table table-striped">
+      <thead>
+          <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Category</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let product of data | paginate: {
+                  id:'listing_pagination',
+               itemsPerPage: 3, 
+               currentPage: page,
+              totalItems: totalRecords }" >
+              <td>{{product.title}}</td>
+              <td>{{product.description}}</td>
+              <td>{{product.price}}</td>
+              <td>{{product.category}}</td>
+          </tr>
+          <pagination-controls id="listing_pagination"
+          (pageChange)="page = $event"
+           
+          ></pagination-controls>
+      </tbody>
+  </table>
+</div>
+
