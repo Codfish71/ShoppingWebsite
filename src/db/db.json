@@ -1,0 +1,102 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "GamePad",
+      "decription": "Gaming thing",
+      "price": 1139,
+      "category": "Electronics"
+    },
+    {
+      "id": 2,
+      "title": "Deodrant",
+      "decription": "Deo for men",
+      "price": 113,
+      "category": "Beauty"
+    },
+    {
+      "id": 3,
+      "title": "iPhone",
+      "decription": "Electronics",
+      "price": 112390,
+      "category": "Electronics"
+    },
+    {
+      "id": 4,
+      "title": "Laptop",
+      "decription": "Dell 5570",
+      "price": 1139,
+      "category": "Electronics"
+    },
+    {
+      "id": 5,
+      "title": "Kinderjoy",
+      "decription": "Chocolate",
+      "price": 110,
+      "category": "Food"
+    },
+    {
+      "id": 6,
+      "title": "Dishes",
+      "decription": "Beautiful crockery items ",
+      "price": 1139,
+      "category": "Crockery"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "user_name": "Admin",
+      "user_phone": 12345678901,
+      "user_email": "adminshop@gmail.com",
+      "user_password": 1234,
+      "user_address": "Mumbai",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "user_name": "Vendor1",
+      "user_phone": 1234534901,
+      "user_email": "vendor1@gmail.com",
+      "user_password": "1234",
+      "user_address": "Pune",
+      "role": "vendor"
+    },
+    {
+      "id": 3,
+      "user_name": "Vendor2",
+      "user_phone": 12345634901,
+      "user_email": "vendor2@gmail.com",
+      "user_password": "1234",
+      "user_address": "Solapur",
+      "role": "vendor"
+    },
+    {
+      "id": 4,
+      "user_name": "Prathamesh",
+      "user_phone": 1278569221,
+      "user_email": "a@gmail.com",
+      "user_password": "1234",
+      "user_address": "Solapur",
+      "role": "customer"
+    },
+    {
+      "user_name": "Pratham",
+      "user_phone": "283472974234",
+      "user_email": "a@gmail.com",
+      "user_password": "1234",
+      "user_address": "asdakljdsd",
+      "role": "",
+      "id": 5
+    },
+    {
+      "user_name":"admin2",
+      "user_email":"admin2@gmail.com",
+      "user_address":"asdakljdsd",
+      "user_password":"1234",
+      "user_phone":1234534901,
+      "role":"admin",
+      "id" : 6
+    }
+  ]
+}

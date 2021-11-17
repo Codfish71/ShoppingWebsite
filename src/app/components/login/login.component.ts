@@ -43,6 +43,9 @@ export class LoginComponent implements OnInit {
             alert("Login Successful!!!");
             this.router.navigate(["vendorHome"]);
           }
+          else{
+            alert("Wrong credentials")
+          }
           this.loginForm.reset();
           
         }
