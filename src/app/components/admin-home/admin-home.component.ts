@@ -13,37 +13,57 @@ export class AdminHomeComponent implements OnInit {
 
   data:Array<any> = [];
   vendors:Array<any> = [];
-  totalRecords:number=0;
+  totalProducts:number=0;
+  totalVendors:number=0;
   page1:number=1;
   page2:number=1;
   constructor(private router:Router,private http:HttpClient,private apiService:ApiService) { }
 
   ngOnInit(): void {
-  }
-
-  getProducts(){
     this.apiService.getProducts().subscribe(
       (resp) => {
         this.data = resp;
         console.log(this.data);
-        this.totalRecords = this.data.length;
+        this.totalProducts = this.data.length;
+      }
+
+    );
+
+    this.apiService.getVendors().subscribe(
+      (resp2) => {
+        this.vendors = resp2;
+        console.log(this.vendors);
+        this.totalVendors = this.vendors.length;
+      }
+
+    );
+  }
+
+  sortProducts(){
+
+  }
+  updateProduct(data:any){
+    const id = data.id; 
+    this.apiService.updateProduct(id,data).subscribe(
+      resp => {
+        alert("Updated  successfully!!!");
+      },err=>{
+        alert("Some issue happened");
       }
 
     );
   }
   getVendors(){
-    this.apiService.getVendors().subscribe(
-      (resp2) => {
-        this.vendors = resp2;
-        console.log(this.vendors);
-        this.totalRecords = this.vendors.length;
-      }
-
-    );
+    
   }
 
-  deleteProduct(){
+  deleteProduct(id:number){
+    this.apiService.deleteProduct(id).subscribe(
+      res => {
+      alert("Deleted Successfully!!");
 
+      }
+      );
   }
 
   deleteVendor(){

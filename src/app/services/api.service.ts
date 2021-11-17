@@ -12,7 +12,7 @@ export class ApiService {
     return this.http.post("http://localhost:3000/users",data);
   }
   getCustomers() {
-    return this.http.get<any>("http://localhost:3000/users");
+    return this.http.get<any>("http://localhost:3000/products");
   }
   getProducts(){
     return this.http.get<any>("http://localhost:3000/products");
@@ -22,6 +22,16 @@ export class ApiService {
   }
   
   getVendors(){
-    return this.http.get<any>("http://localhost:3000/users?role=vendor")
+    return this.http.get<any>("http://localhost:3000/users?role=vendor");
+  }
+  deleteProduct(id:number){
+
+    return this.http.delete("http://localhost:3000/products/" + id);
+  }
+  deleteVendor(id:number){
+    return this.http.delete("http://localhost:3000/users/"+id);
+  }
+  updateProduct(id:number,data:any){
+    return this.http.put("http://localhost:3000/products/"+id,data)
   }
 }

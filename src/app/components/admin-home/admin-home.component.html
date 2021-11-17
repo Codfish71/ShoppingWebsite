@@ -17,8 +17,10 @@
   </div>
 </nav>
 
+
+
 <div class="container">
-    <button class="btn btn-warning" (click) = "getProducts()">View Products</button>
+    <button class="btn btn-warning" (click) = "sortProducts()">View Products</button>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -33,12 +35,13 @@
                     id:'product_pagination',
                  itemsPerPage: 3, 
                  currentPage: page1,
-                totalItems: totalRecords }" >
+                totalItems: totalProducts }" >
                 <td>{{product.title}}</td>
                 <td>{{product.description}}</td>
                 <td>{{product.price}}</td>
                 <td>{{product.category}}</td>
-                <td><button class="btn btn-danger" (click) = "deleteProduct()" >Delete</button></td>
+                <td><button class="btn btn-secondary" (click) = "updateProduct(product.id)"  >Update</button></td>
+                <td><button class="btn btn-danger" (click) = "deleteProduct(product.id)"  >Delete</button></td>
             </tr>
             <pagination-controls id="product_pagination"
             (pageChange)="page1 = $event"
@@ -65,7 +68,7 @@
                     id:'vendor_pagination',
                  itemsPerPage: 3, 
                  currentPage: page2,
-                totalItems: totalRecords }" >
+                totalItems: totalVendors }" >
                 <td>{{vendor.user_name}}</td>
                 <td>{{vendor.user_phone}}</td>
                 <td>{{vendor.user_email}}</td>
@@ -79,4 +82,5 @@
         </tbody>
     </table>
 </div>
+
 

@@ -1,13 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "title": "GamePad",
-      "decription": "Gaming thing",
-      "price": 1139,
-      "category": "Electronics"
-    },
-    {
       "id": 2,
       "title": "Deodrant",
       "decription": "Deo for men",
@@ -90,13 +83,13 @@
       "id": 5
     },
     {
-      "user_name":"admin2",
-      "user_email":"admin2@gmail.com",
-      "user_address":"asdakljdsd",
-      "user_password":"1234",
-      "user_phone":1234534901,
-      "role":"admin",
-      "id" : 6
+      "user_name": "admin2",
+      "user_email": "admin2@gmail.com",
+      "user_address": "asdakljdsd",
+      "user_password": "1234",
+      "user_phone": 1234534901,
+      "role": "admin",
+      "id": 6
     }
   ]
 }
