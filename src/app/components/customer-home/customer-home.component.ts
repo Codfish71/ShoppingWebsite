@@ -21,6 +21,7 @@ export class CustomerHomeComponent implements OnInit {
   totalVendors:number=0;
   page1:number=1;
   public searchForm!:FormGroup;
+  totalAmount:number = 0;
   
   
   
@@ -84,6 +85,8 @@ export class CustomerHomeComponent implements OnInit {
   addToCart(product:any){
    
     this.cartObj.cartlist.push(product);
+    this.cartObj.cartAmount += product.price;
+    this.totalAmount+= product.price; 
     this.cart.push(product);
     /*
     this.apiService.addToCart(this.cart).subscribe(
@@ -97,6 +100,7 @@ export class CustomerHomeComponent implements OnInit {
   }
 
   viewCart(){
+    this.totalAmount = this.cartObj.cartAmount;
     return this.cartObj.cartlist;
   }
   placeOrder(){

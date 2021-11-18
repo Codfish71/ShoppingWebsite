@@ -95,6 +95,25 @@
     }
   ],
   "cart": [
-    
+    {
+      "cartlist": [
+        {
+          "id": 3,
+          "title": "iPhone",
+          "decription": "Electronics",
+          "price": 112390,
+          "category": "Electronics"
+        },
+        {
+          "id": 4,
+          "title": "Laptop",
+          "decription": "Dell 5570",
+          "price": 1139,
+          "category": "Electronics"
+        }
+      ],
+      "cartAmount": 113529,
+      "id": 1
+    }
   ]
 }

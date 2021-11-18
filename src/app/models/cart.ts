@@ -4,4 +4,5 @@ export class Cart {
     cartId!:number;
     userId!:number;
     cartlist:Array<Product> = [];
+    cartAmount:number=0;
 }
