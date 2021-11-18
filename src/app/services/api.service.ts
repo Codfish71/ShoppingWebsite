@@ -1,10 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+  getProductByName(title: any) {
+    return this.http.get<Product>("http://localhost:3000/products/"+title);
+  }
   addNewVendor(vendor: any) {
     return this.http.post("http://localhost:3000/users",vendor);
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import {FormBuilder,FormGroup} from '@angular/forms';
+import { Product } from 'src/app/models/product';
 
 
 @Component({
@@ -16,6 +17,8 @@ export class VendorHomeComponent implements OnInit {
   totalRecords:number=0;
   page:number=1;
   public addProductForm!:FormGroup;
+  public updateProductForm!:FormGroup;
+  private product:any;
   ngOnInit(): void {
     this.apiService.getProducts().subscribe(
       (resp) => {
@@ -27,6 +30,13 @@ export class VendorHomeComponent implements OnInit {
     );
 
     this.addProductForm = this.formBuilder.group({
+      title:[''],
+      description:[''],
+      category:[''],
+      price:[],
+      vendor:['']
+    })
+    this.updateProductForm = this.formBuilder.group({
       title:[''],
       description:[''],
       category:[''],
@@ -60,7 +70,11 @@ export class VendorHomeComponent implements OnInit {
       );
       this.router.navigate(['vendorhome'])
   }
-  updateProduct(product:any){
+  updateProduct(){
+    
+    this.product = this.apiService.getProductByName(this.updateProductForm.value.title);
+    console.log(this.product.id)
+    this.apiService.updateProduct(this.product.id,this.updateProductForm.value);
     this.router.navigate(['vendorhome'])
   }
 
