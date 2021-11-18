@@ -1,20 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "title": "GamePad",
-      "decription": "Gaming thing",
-      "price": 1139,
-      "category": "Electronics"
-    },
-    {
-      "id": 2,
-      "title": "Deodrant",
-      "decription": "Deo for men",
-      "price": 113,
-      "category": "Beauty"
-    },
-    {
       "id": 3,
       "title": "iPhone",
       "decription": "Electronics",
@@ -49,7 +35,7 @@
       "user_name": "Admin",
       "user_phone": 12345678901,
       "user_email": "adminshop@gmail.com",
-      "user_password": "1234",
+      "user_password": 1234,
       "user_address": "Mumbai",
       "role": "admin"
     },
@@ -84,19 +70,47 @@
       "user_name": "Pratham",
       "user_phone": "283472974234",
       "user_email": "a@gmail.com",
-      "user_password": "12345",
+      "user_password": "1234",
       "user_address": "asdakljdsd",
       "role": "",
       "id": 5
     },
     {
-      "user_name":"admin2",
-      "user_email":"admin2@gmail.com",
-      "user_address":"asdakljdsd",
-      "user_password":"1234",
-      "user_phone":1234534901,
-      "role":"admin",
-      "id" : 6
+      "user_name": "admin2",
+      "user_email": "admin2@gmail.com",
+      "user_address": "asdakljdsd",
+      "user_password": "1234",
+      "user_phone": 1234534901,
+      "role": "admin",
+      "id": 6
+    },
+    {
+      "user_name": "prat",
+      "user_phone": "13213213124",
+      "user_email": "abcd@gmail.com",
+      "user_password": "1234",
+      "user_address": "fdlksdfjlsf",
+      "role": "",
+      "id": 7
     }
+  ],
+  "cart": [
+    [
+      
+      {
+        "id": 3,
+        "title": "iPhone",
+        "decription": "Electronics",
+        "price": 112390,
+        "category": "Electronics"
+      },
+      {
+        "id": 4,
+        "title": "Laptop",
+        "decription": "Dell 5570",
+        "price": 1139,
+        "category": "Electronics"
+      }
+    ]
   ]
 }

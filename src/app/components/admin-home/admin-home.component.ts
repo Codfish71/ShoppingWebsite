@@ -53,6 +53,17 @@ export class AdminHomeComponent implements OnInit {
 
     );
   }
+  updateVendor(data:any){
+    const id = data.id; 
+    this.apiService.updateVendor(id,data).subscribe(
+      resp => {
+        alert("Updated  successfully!!!");
+      },err=>{
+        alert("Some issue happened");
+      }
+
+    );
+  }
   getVendors(){
     
   }
@@ -66,8 +77,12 @@ export class AdminHomeComponent implements OnInit {
       );
   }
 
-  deleteVendor(){
-    
+  deleteVendor(id:number){
+    this.apiService.deleteVendor(id).subscribe(
+      resp => {
+        alert("deleted Successfully")
+      }
+    )
   }
 
   logout() {

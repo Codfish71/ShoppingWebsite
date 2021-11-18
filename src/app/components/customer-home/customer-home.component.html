@@ -19,8 +19,77 @@
 
 
 
-<div class="container">
-    <button class="btn btn-warning" (click) = "sortProducts()">View Products</button>
+<div class="container" id="products">
+   
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sort
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" (click)= "sortLowToHigh()" type="button">By price : Low to high</button>
+        <button class="dropdown-item" (click)= "sortHighToLow()" type="button">By price High to low</button>
+       
+      </div>
+    </div>
+    <form class="form-inline my-2 my-lg-0" (ngSubmit) = "searchProductByName()">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" formControlName="keyword">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  View cart
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Your cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>Title</th>
+                      <th>Description</th>
+                      <th>Price</th>
+                      <th>Category</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let product of cart | paginate: {
+                          id:'product_pagination',
+                       itemsPerPage: 3, 
+                       currentPage: page1,
+                      totalItems: totalProducts }" >
+                      <td>{{product.title}}</td>
+                      <td>{{product.description}}</td>
+                      <td>{{product.price}}</td>
+                      <td>{{product.category}}</td>
+                      <td><button class="btn btn-danger" (click) = "deleteProduct(product)"  >Delete</button></td>
+                  </tr>
+                  <pagination-controls id="product_pagination"
+                  (pageChange)="page1 = $event"
+                   
+                  ></pagination-controls>
+              </tbody>
+          </table>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click) = "placeOrder()">Place Order</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <br>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -40,6 +109,7 @@
                 <td>{{product.description}}</td>
                 <td>{{product.price}}</td>
                 <td>{{product.category}}</td>
+                <td><button class="btn btn-secondary" (click) = "addToCart(product)"  >Add</button></td>
             </tr>
             <pagination-controls id="product_pagination"
             (pageChange)="page1 = $event"

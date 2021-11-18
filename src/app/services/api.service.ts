@@ -17,8 +17,21 @@ export class ApiService {
   getProducts(){
     return this.http.get<any>("http://localhost:3000/products");
   }
+  getProductsAscendingPrice(){
+    return this.http.get<any>("http://localhost:3000/products?_sort=price&_order=asc");
+  }
+  getProductsDescendingPrice(){
+    return this.http.get<any>("http://localhost:3000/products?_sort=price&_order=desc");
+  }
+  searchProductByName(keyword:string){
+    return this.http.get<any>("http://localhost:3000/products?q="+keyword);
+  }
   postProduct(data:any){
     return this.http.post("http://localhost:3000/products",data);
+  }
+
+  placeOrder(product:any){
+    return this.http.post("http://localhost:3000/cart",product);
   }
   
   getVendors(){
@@ -33,5 +46,8 @@ export class ApiService {
   }
   updateProduct(id:number,data:any){
     return this.http.put("http://localhost:3000/products/"+id,data)
+  }
+  updateVendor(id:number,data:any){
+    return this.http.put("http://localhost:3000/users/"+id,data)
   }
 }
