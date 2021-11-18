@@ -17,8 +17,42 @@
   </div>
 </nav>
 
+
+<!-- Product Modal -->
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addProductForm">
+          
+            <input type="text" class="form-control" formControlName="title" id="product_title" placeholder="Product title"><br>
+            <input type="text" class="form-control" formControlName="description" id="product_Description" placeholder="Product description"><br>
+            <input type="text" class="form-control" formControlName="category" id="product_category" placeholder="Product category"><br>
+            <input type="text" class="form-control" formControlName="vendor" id="product_vendor" placeholder="Product vendor"><br>
+            <input type="number" class="form-control" formControlName="price" id="product_price" placeholder="Product price"><br>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" (click) = "addNewProduct()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="container">
-  <button class="btn btn-warning" (click) = "getProducts()">View Products</button>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#productModal">
+    Add product
+  </button>
+  <br>
   <table class="table table-striped">
       <thead>
           <tr>
@@ -26,6 +60,8 @@
               <th>Description</th>
               <th>Price</th>
               <th>Category</th>
+              <th>Update</th>
+              <th>Delete</th>
           </tr>
       </thead>
       <tbody>
@@ -38,6 +74,8 @@
               <td>{{product.description}}</td>
               <td>{{product.price}}</td>
               <td>{{product.category}}</td>
+              <td><button class="btn btn-secondary" (click) = "updateProduct(product)"  >Update</button></td>
+              <td><button class="btn btn-danger" (click) = "deleteProduct(product.id)"  >Delete</button></td>
           </tr>
           <pagination-controls id="listing_pagination"
           (pageChange)="page = $event"

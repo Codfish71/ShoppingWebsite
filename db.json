@@ -1,14 +1,6 @@
 {
   "products": [
     {
-      "id": 3,
-      "title": "iPhone",
-      "decription": "Electronics",
-      "price": 112390,
-      "category": "Electronics",
-      "vendor": "vendor1"
-    },
-    {
       "id": 4,
       "title": "Laptop",
       "decription": "Dell 5570",
@@ -31,6 +23,14 @@
       "price": 1139,
       "category": "Crockery",
       "vendor": "vendor1"
+    },
+    {
+      "title": "vendor product",
+      "description": "vendor side added product",
+      "category": "Game",
+      "price": 12345,
+      "vendor": "vendor1",
+      "id": 7
     }
   ],
   "users": [
@@ -121,15 +121,6 @@
       "user_role": "vendor",
       "user_password": "1234",
       "id": 10
-    },
-    {
-      "user_name": "abcds",
-      "user_email": "kas@gmail.com",
-      "user_address": "fdjjd;lsfj",
-      "user_phone": 3432849,
-      "role": "vendor",
-      "user_password": "1234",
-      "id": 11
     }
   ],
   "cart": [

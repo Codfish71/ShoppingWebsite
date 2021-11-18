@@ -72,6 +72,7 @@ export class AdminHomeComponent implements OnInit {
       }
 
     );
+    this.router.navigate(['adminHome']);
   }
   updateVendor(data:any){
     const id = data.id; 
@@ -83,6 +84,7 @@ export class AdminHomeComponent implements OnInit {
       }
 
     );
+    this.router.navigate(['adminHome']);
   }
  
   addNewVendor() {
@@ -95,6 +97,7 @@ export class AdminHomeComponent implements OnInit {
         alert("Some error occured")
       }
     );
+    this.router.navigate(['adminHome']);
   }
   deleteProduct(id:number){
     this.apiService.deleteProduct(id).subscribe(
@@ -103,6 +106,7 @@ export class AdminHomeComponent implements OnInit {
 
       }
       );
+      this.router.navigate(['adminHome']);
   }
 
   deleteVendor(id:number){
@@ -110,7 +114,8 @@ export class AdminHomeComponent implements OnInit {
       resp => {
         alert("deleted Successfully")
       }
-    )
+    );
+    this.router.navigate(['adminHome']);
   }
 
   addNewProduct(){
@@ -130,6 +135,7 @@ export class AdminHomeComponent implements OnInit {
         alert("Some error occured")
       }
     );
+    this.router.navigate(['adminHome']);
 
   }
 
