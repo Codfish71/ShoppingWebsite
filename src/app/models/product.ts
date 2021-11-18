@@ -4,4 +4,5 @@ export class Product {
     description:string='';
     price:number=0;
     category:string='';
+    vendor:string='';
 }

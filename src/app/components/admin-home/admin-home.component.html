@@ -19,10 +19,77 @@
   </div>
 </nav>
 
+<!-- Product Modal -->
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addProductForm">
+          
+            <input type="text" class="form-control" formControlName="title" id="product_title" placeholder="Product title"><br>
+            <input type="text" class="form-control" formControlName="description" id="product_Description" placeholder="Product description"><br>
+            <input type="text" class="form-control" formControlName="category" id="product_category" placeholder="Product category"><br>
+            <input type="text" class="form-control" formControlName="vendor" id="product_vendor" placeholder="Product vendor"><br>
+            <input type="number" class="form-control" formControlName="price" id="product_price" placeholder="Product price"><br>
 
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" (click) = "addNewProduct()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Vendor Modal -->
+<div class="modal fade" id="vendorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addVendorForm">
+          
+            <input type="text" class="form-control" formControlName="user_name" id="user_name" placeholder="Vendor name"><br>
+            <input type="text" class="form-control" formControlName="user_email" id="user_email" placeholder="Vendor Email"><br>
+            <input type="number" class="form-control" formControlName="user_phone" id="user_phone" placeholder="Vendor Phone"><br>
+            <input type="text" class="form-control" formControlName="user_address" id="user_address" placeholder="Vendor address"><br>
+            <input type="text" class="form-control" formControlName="role" id="role" placeholder="Select role as vendor"><br>
+            <input type="text" class="form-control" formControlName="user_password" id="user_password" placeholder="Vendor password"><br>
+
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" (click) = "addNewVendor()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container">
-    <button class="btn btn-warning" (click) = "sortProducts()">View Products</button>
+    
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#productModal">
+  Add product
+</button>
+<br>
+
+
+
+
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -30,6 +97,9 @@
                 <th>Description</th>
                 <th>Price</th>
                 <th>Category</th>
+                <th>Vendor</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -42,6 +112,7 @@
                 <td>{{product.description}}</td>
                 <td>{{product.price}}</td>
                 <td>{{product.category}}</td>
+                <td>{{product.vendor}}</td>
                 <td><button class="btn btn-secondary" (click) = "updateProduct(product)"  >Update</button></td>
                 <td><button class="btn btn-danger" (click) = "deleteProduct(product.id)"  >Delete</button></td>
             </tr>
@@ -55,7 +126,9 @@
 
 
 <div class="container">
-    <button class="btn btn-warning" (click) = "getVendors()">View Vendors</button>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#vendorModal">
+    Add Vendor
+  </button>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -86,29 +159,3 @@
     </table>
 </div>
 
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>

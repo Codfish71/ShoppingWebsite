@@ -5,28 +5,32 @@
       "title": "iPhone",
       "decription": "Electronics",
       "price": 112390,
-      "category": "Electronics"
+      "category": "Electronics",
+      "vendor":"vendor1"
     },
     {
       "id": 4,
       "title": "Laptop",
       "decription": "Dell 5570",
       "price": 1139,
-      "category": "Electronics"
+      "category": "Electronics",
+      "vendor":"vendor1"
     },
     {
       "id": 5,
       "title": "Kinderjoy",
       "decription": "Chocolate",
       "price": 110,
-      "category": "Food"
+      "category": "Food",
+      "vendor":"vendor1"
     },
     {
       "id": 6,
       "title": "Dishes",
       "decription": "Beautiful crockery items ",
       "price": 1139,
-      "category": "Crockery"
+      "category": "Crockery",
+      "vendor":"vendor1"
     }
   ],
   "users": [
@@ -95,22 +99,45 @@
     }
   ],
   "cart": [
-    [
-      
-      {
-        "id": 3,
-        "title": "iPhone",
-        "decription": "Electronics",
-        "price": 112390,
-        "category": "Electronics"
-      },
-      {
-        "id": 4,
-        "title": "Laptop",
-        "decription": "Dell 5570",
-        "price": 1139,
-        "category": "Electronics"
-      }
-    ]
+    {
+      "cartlist": [
+        {
+          "id": 3,
+          "title": "iPhone",
+          "decription": "Electronics",
+          "price": 112390,
+          "category": "Electronics"
+        },
+        {
+          "id": 4,
+          "title": "Laptop",
+          "decription": "Dell 5570",
+          "price": 1139,
+          "category": "Electronics"
+        }
+      ],
+      "cartAmount": 113529,
+      "id": 1
+    },
+    {
+      "cartlist": [
+        {
+          "id": 4,
+          "title": "Laptop",
+          "decription": "Dell 5570",
+          "price": 1139,
+          "category": "Electronics"
+        },
+        {
+          "id": 5,
+          "title": "Kinderjoy",
+          "decription": "Chocolate",
+          "price": 110,
+          "category": "Food"
+        }
+      ],
+      "cartAmount": 1249,
+      "id": 2
+    }
   ]
 }

@@ -5,28 +5,32 @@
       "title": "iPhone",
       "decription": "Electronics",
       "price": 112390,
-      "category": "Electronics"
+      "category": "Electronics",
+      "vendor": "vendor1"
     },
     {
       "id": 4,
       "title": "Laptop",
       "decription": "Dell 5570",
       "price": 1139,
-      "category": "Electronics"
+      "category": "Electronics",
+      "vendor": "vendor1"
     },
     {
       "id": 5,
       "title": "Kinderjoy",
       "decription": "Chocolate",
       "price": 110,
-      "category": "Food"
+      "category": "Food",
+      "vendor": "vendor1"
     },
     {
       "id": 6,
       "title": "Dishes",
       "decription": "Beautiful crockery items ",
       "price": 1139,
-      "category": "Crockery"
+      "category": "Crockery",
+      "vendor": "vendor1"
     }
   ],
   "users": [
@@ -92,6 +96,40 @@
       "user_address": "fdlksdfjlsf",
       "role": "",
       "id": 7
+    },
+    {
+      "user_name": "Testing vendor",
+      "user_email": "vendortest@gmail.com",
+      "user_address": "ldsjf;lsdjf",
+      "user_phone": 45435435,
+      "user_role": "vendor",
+      "id": 8
+    },
+    {
+      "user_name": "Testing vendor",
+      "user_email": "vendortest@gmail.com",
+      "user_address": "sfsdfadsf",
+      "user_phone": 432432423,
+      "user_role": "vendor",
+      "id": 9
+    },
+    {
+      "user_name": "Testing vendor 3",
+      "user_email": "vendortest3@gmail.com",
+      "user_address": "sfsdfadsf",
+      "user_phone": 123435435,
+      "user_role": "vendor",
+      "user_password": "1234",
+      "id": 10
+    },
+    {
+      "user_name": "abcds",
+      "user_email": "kas@gmail.com",
+      "user_address": "fdjjd;lsfj",
+      "user_phone": 3432849,
+      "role": "vendor",
+      "user_password": "1234",
+      "id": 11
     }
   ],
   "cart": [
@@ -114,6 +152,26 @@
       ],
       "cartAmount": 113529,
       "id": 1
+    },
+    {
+      "cartlist": [
+        {
+          "id": 4,
+          "title": "Laptop",
+          "decription": "Dell 5570",
+          "price": 1139,
+          "category": "Electronics"
+        },
+        {
+          "id": 5,
+          "title": "Kinderjoy",
+          "decription": "Chocolate",
+          "price": 110,
+          "category": "Food"
+        }
+      ],
+      "cartAmount": 1249,
+      "id": 2
     }
   ]
 }

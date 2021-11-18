@@ -40,6 +40,9 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   View cart
 </button>
+<button type="button" class="btn btn-primary" data-toggle="modal" (click) = "viewOrdersofUser()" data-target="#orderModal">
+  View orders
+</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -87,6 +90,53 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" (click) = "placeOrder()">Place Order</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!--Orders modal-->
+
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Your orders</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>Order Id</th>
+                      <th>Items : </th>
+                      <th>Price</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let order of orderList | paginate: {
+                          id:'order_pagination',
+                       itemsPerPage: 3, 
+                       currentPage: page2,
+                      totalItems: totalOrders }" >
+                      <td>{{order.id}}</td>
+                      <td>{{order.cartList}}</td>
+                      <td>{{order.price}}</td>
+                   </tr>
+                  <pagination-controls id="order_pagination"
+                  (pageChange)="page2 = $event"
+                   
+                  ></pagination-controls>
+              </tbody>
+          </table>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
     </div>
   </div>
 </div>

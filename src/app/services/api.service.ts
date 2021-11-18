@@ -5,6 +5,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
+  addNewVendor(vendor: any) {
+    return this.http.post("http://localhost:3000/users",vendor);
+  }
+  
 
   constructor(private http:HttpClient) { }
 
@@ -13,6 +17,10 @@ export class ApiService {
   }
   getCustomers() {
     return this.http.get<any>("http://localhost:3000/users");
+  }
+
+  addNewProduct(product: any) {
+    return this.http.post("http://localhost:3000/products",product);
   }
   getProducts(){
     return this.http.get<any>("http://localhost:3000/products");
@@ -32,6 +40,9 @@ export class ApiService {
 
   placeOrder(product:any){
     return this.http.post("http://localhost:3000/cart",product);
+  }
+  viewOrdersofUser(){
+    return this.http.get<any>("http://localhost:3000/cart");
   }
   
   getVendors(){

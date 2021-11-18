@@ -15,11 +15,14 @@ export class CustomerHomeComponent implements OnInit {
 
   cartObj = new Cart();
   cart:Array<any> = [];
-  data:Array<any> = []
+  data:Array<any> = [];
+  orderList:Array<any> = [];
   vendors:Array<any> = []
   totalProducts:number=0;
   totalVendors:number=0;
+  totalOrders:number=0;
   page1:number=1;
+  page2:number=1;
   public searchForm!:FormGroup;
   totalAmount:number = 0;
   
@@ -121,10 +124,23 @@ export class CustomerHomeComponent implements OnInit {
     this.cart = []
   }
   deleteProduct(product:any){
-   this.cartObj.cartlist.indexOf(product)
+    let index = this.cart.indexOf(product);
+   this.cart.splice(index,1)
+   this.cartObj.cartlist.splice(index,1);
+  }
+  
+  viewOrdersofUser() {
+    this.apiService.viewOrdersofUser().subscribe(
+      resp => {
+        this.orderList = resp;
+         
+        this.totalOrders = this.orderList.length;
+      }
+    );
   }
   logout() {
     this.router.navigate(['login'])
   }
+
 
 }

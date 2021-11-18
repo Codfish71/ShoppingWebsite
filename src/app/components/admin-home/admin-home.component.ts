@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import {FormBuilder,FormGroup} from '@angular/forms';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-admin-home',
@@ -17,9 +19,13 @@ export class AdminHomeComponent implements OnInit {
   totalVendors:number=0;
   page1:number=1;
   page2:number=1;
-  constructor(private router:Router,private http:HttpClient,private apiService:ApiService) { }
+  public addProductForm!:FormGroup;
+  public addVendorForm!:FormGroup;
+  newProduct = new Product();
+  constructor(private router:Router,private http:HttpClient,private apiService:ApiService,private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
+
     this.apiService.getProducts().subscribe(
       (resp) => {
         this.data = resp;
@@ -37,11 +43,25 @@ export class AdminHomeComponent implements OnInit {
       }
 
     );
+
+    this.addProductForm = this.formBuilder.group({
+      title:[''],
+      description:[''],
+      category:[''],
+      price:[],
+      vendor:['']
+    })
+    this.addVendorForm = this.formBuilder.group({
+      user_name:[''],
+      user_email:[''],
+      user_address:[''],
+      user_phone:[],
+      role:[''],
+      user_password:['']
+    })
   }
 
-  sortProducts(){
 
-  }
   updateProduct(data:any){
     const id = data.id; 
     this.apiService.updateProduct(id,data).subscribe(
@@ -64,10 +84,18 @@ export class AdminHomeComponent implements OnInit {
 
     );
   }
-  getVendors(){
-    
+ 
+  addNewVendor() {
+    this.apiService.addNewVendor(this.addVendorForm.value).subscribe(
+      resp => 
+      {
+        alert("Vendor added successfully!!!");
+      },err =>
+      {
+        alert("Some error occured")
+      }
+    );
   }
-
   deleteProduct(id:number){
     this.apiService.deleteProduct(id).subscribe(
       res => {
@@ -83,6 +111,26 @@ export class AdminHomeComponent implements OnInit {
         alert("deleted Successfully")
       }
     )
+  }
+
+  addNewProduct(){
+    /*
+    this.newProduct.title = this.addProductForm.value.productTitle;
+    this.newProduct.description = this.addProductForm.value.productDescription;
+    this.newProduct.category = this.addProductForm.value.productCategory;
+    this.newProduct.price = this.addProductForm.value.productPrice;
+    this.newProduct.vendor = this.addProductForm.value.productVendor;
+    */
+    this.apiService.addNewProduct(this.addProductForm.value).subscribe(
+      resp => 
+      {
+        alert("Product added successfully!!!");
+      },err =>
+      {
+        alert("Some error occured")
+      }
+    );
+
   }
 
   logout() {
