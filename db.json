@@ -1,13 +1,6 @@
 {
   "products": [
     {
-      "id": 2,
-      "title": "Deodrant",
-      "decription": "Deo for men",
-      "price": 113,
-      "category": "Beauty"
-    },
-    {
       "id": 3,
       "title": "iPhone",
       "decription": "Electronics",
@@ -90,6 +83,15 @@
       "user_phone": 1234534901,
       "role": "admin",
       "id": 6
+    },
+    {
+      "user_name": "prat",
+      "user_phone": "13213213124",
+      "user_email": "abcd@gmail.com",
+      "user_password": "1234",
+      "user_address": "fdlksdfjlsf",
+      "role": "",
+      "id": 7
     }
   ]
 }

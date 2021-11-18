@@ -12,7 +12,7 @@ export class ApiService {
     return this.http.post("http://localhost:3000/users",data);
   }
   getCustomers() {
-    return this.http.get<any>("http://localhost:3000/products");
+    return this.http.get<any>("http://localhost:3000/users");
   }
   getProducts(){
     return this.http.get<any>("http://localhost:3000/products");
